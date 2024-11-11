@@ -1,0 +1,48 @@
+{% set versions = {
+    "3.4.3": "cc175471bfab8656b8c6183a8e5e9ad05d5f7506e46f3212a9a8230905b8f6a3"
+} %}
+
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "fastjet")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  url: "https://fastjet.fr/repo/fastjet-{{ version }}.tar.gz"
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+
+    - make
+
+  host:
+    - python
+    - boost
+    - mpfr
+    - gmp
+    - swig
+    - autoconf
+    - libtool
+
+  run:
+    - python
+
+about:
+  home: "https://fastjet.fr"
+  license: "GPL-2.0"
+  summary: "A software package for jet finding in pp and e+e− collisions. "
+  description: |
+    A software package for jet finding in pp and e+e− collisions. It includes fast native implementations of many sequential recombination clustering algorithms, plugins for access to a range of cone jet finders and tools for advanced jet manipulation.
+
+extra:
+  recipe-maintainers:
+    - meiyasan
