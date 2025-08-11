@@ -19,8 +19,8 @@ source:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - {{ compiler('c') }}
+    - {{ compiler('cxx') }} 14.*
+    - {{ compiler('c') }} 14.*
 
     - make
 
