@@ -25,6 +25,8 @@ requirements:
     - make
 
   host:
+    - {{ compiler('cxx') }} 14.*
+    - {{ compiler('c') }} 14.*
     - python
     - boost
     - mpfr
