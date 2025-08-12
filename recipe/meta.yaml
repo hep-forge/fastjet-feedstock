@@ -19,14 +19,12 @@ source:
 
 requirements:
   build:
-    - {{ compiler('cxx') }} 14.*
-    - {{ compiler('c') }} 14.*
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
 
     - make
 
   host:
-    - {{ compiler('cxx') }} 14.*
-    - {{ compiler('c') }} 14.*
     - python
     - boost
     - mpfr
