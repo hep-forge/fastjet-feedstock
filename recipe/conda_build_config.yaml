@@ -1,7 +1,46 @@
+# ---- C stdlib (ABI floor)
+c_stdlib:
+  - sysroot                  # [linux]
+  - macosx_deployment_target # [osx]
+
+c_stdlib_version:
+  - 2.17    # glibc baseline (manylinux2014)   # [linux]
+  - 11.0    # your macOS baseline               # [osx]
+
+# ---- Compilers (Linux)
+c_compiler:            # [linux]
+  - gcc
+cxx_compiler:          # [linux]
+  - gxx
+fortran_compiler:      # [linux]
+  - gfortran
+
+c_compiler_version:    # [linux]
+  - 14
+cxx_compiler_version:  # [linux]
+  - 14
+fortran_compiler_version:  # [linux]
+  - 14
+
+# ---- Runtime versions
+libgcc_ng_version:     # [linux]
+  - 14.*
+libstdcxx_ng_version:  # [linux]
+  - 14.*
+libgomp_version:       # [linux]
+  - 14.*
+
+# Keep versions aligned
+zip_keys:
+  - - c_compiler_version
+    - cxx_compiler_version
+    - fortran_compiler_version
+    - libgcc_ng_version
+    - libstdcxx_ng_version
+    - libgomp_version
+    
 python:
-  - 3.9
   - 3.10
-  - 3.11
   - 3.12
   
 packages:
