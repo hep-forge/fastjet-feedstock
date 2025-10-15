@@ -27,8 +27,6 @@ libgcc_version:     # [linux]
   - 14.*
 libstdcxx_version:  # [linux]
   - 14.*
-libgomp_version:       # [linux]
-  - 14.*
 libgcc_ng_version:     # [linux]
   - 14.*
 libstdcxx_ng_version:  # [linux]
