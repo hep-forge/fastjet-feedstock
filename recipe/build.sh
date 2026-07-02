@@ -9,7 +9,8 @@ done
 
 ./configure --prefix=$PREFIX --enable-allcxxplugins
 
-make -j$(nproc)
+NPROC=$(nproc 2>/dev/null || sysctl -n hw.ncpu)
+make -j$NPROC
 make install
 
 ln -sf libfastjet.so $PREFIX/lib/libfastjet.so.0
