@@ -15,8 +15,8 @@ A software package for jet finding in pp and e+e− collisions.
 
 | Architecture | Latest published |
 |--------------|------------------|
-| linux-amd64 (`linux-64`) | ✅ `3.5.1` |
-| linux-arm64 (`linux-aarch64`) | ✅ `3.5.1` |
+| linux-amd64 (`linux-64`) | ✅ `3.5.3` |
+| linux-arm64 (`linux-aarch64`) | ✅ `3.5.3` |
 
 _As of the last feedstock render; the badges above are live._
 
