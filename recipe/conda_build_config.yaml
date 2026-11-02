@@ -9,30 +9,30 @@ c_stdlib_version:
 
 # ---- Compilers (Linux)
 c_compiler:            # [linux]
-  - gcc
+  - gcc                      # [linux]
 cxx_compiler:          # [linux]
-  - gxx
+  - gxx                      # [linux]
 fortran_compiler:      # [linux]
-  - gfortran
+  - gfortran                 # [linux]
 
 c_compiler_version:    # [linux]
-  - 14
+  - 14                       # [linux]
 cxx_compiler_version:  # [linux]
-  - 14
+  - 14                       # [linux]
 fortran_compiler_version:  # [linux]
-  - 14
+  - 14                       # [linux]
 
 # ---- Runtime versions
 libgcc_version:     # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libstdcxx_version:  # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libgcc_ng_version:     # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libstdcxx_ng_version:  # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 libgomp_version:       # [linux]
-  - 14.*
+  - 14.*                     # [linux]
 
 # Keep versions aligned
     
