@@ -14,7 +14,11 @@ package:
   version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
 
 source:
-  url: "https://fastjet.fr/repo/fastjet-{{ version }}.tar.gz"
+  url:
+    - "https://fastjet.fr/repo/fastjet-{{ version }}.tar.gz"
+    # same file (same sha256) on the Wayback Machine: fastjet.fr timed out
+    # for hours on 2026-11-03
+    - "https://web.archive.org/web/2025id_/https://fastjet.fr/repo/fastjet-{{ version }}.tar.gz"
   {% if versions.get(version, None) %}
   sha256: {{ versions.get(version) }}
   {% endif %}
