@@ -7,13 +7,21 @@ for f in config.sub config.guess; do
   find . -name "$f" -exec cp "$BUILD_PREFIX/share/gnuconfig/$f" {} \;
 done
 
+# CompositeJetStructure.cc uses std::back_inserter without including
+# <iterator>; libstdc++ pulls it in through other headers, libc++ does not.
+if [[ "$(uname)" == "Darwin" ]]; then
+  export CXXFLAGS="${CXXFLAGS} -include iterator"
+fi
+
 ./configure --prefix=$PREFIX --enable-allcxxplugins
 
 NPROC=$(nproc 2>/dev/null || sysctl -n hw.ncpu)
 make -j$NPROC
 make install
 
-ln -sf libfastjet.so $PREFIX/lib/libfastjet.so.0
-ln -sf libfastjettools.so $PREFIX/lib/libfastjettools.so.0
-ln -sf libfastjetplugins.so $PREFIX/lib/libfastjetplugins.so.0
-ln -sf libfastjetcontribfragile.so $PREFIX/lib/libfastjetcontribfragile.so.0
+if [[ "$(uname)" != "Darwin" ]]; then
+  ln -sf libfastjet.so $PREFIX/lib/libfastjet.so.0
+  ln -sf libfastjettools.so $PREFIX/lib/libfastjettools.so.0
+  ln -sf libfastjetplugins.so $PREFIX/lib/libfastjetplugins.so.0
+  ln -sf libfastjetcontribfragile.so $PREFIX/lib/libfastjetcontribfragile.so.0
+fi
